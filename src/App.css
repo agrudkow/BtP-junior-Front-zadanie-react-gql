@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+  padding: 50px;
+}
+
+.items-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.items-container .item {
+  flex: 0 1 22%;
+  margin: 10px;
+}
