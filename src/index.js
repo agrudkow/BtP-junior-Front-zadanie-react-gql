@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 const httpLink = new HttpLink({ uri: 'https://api.graphcms.com/simple/v1/swapi' })
 
@@ -31,9 +32,11 @@ const client = new ApolloClient({
 });
 
 const ApolloApp = () => (
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>
+  <Router>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </Router>
 )
 
 ReactDOM.render(<ApolloApp />, document.getElementById('root'));

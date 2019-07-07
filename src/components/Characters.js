@@ -1,8 +1,10 @@
 import gql from "graphql-tag";
 import React from "react";
 import { Query } from "react-apollo";
+import {Link} from 'react-router-dom';
 
-const QUERY = gql`
+
+const CHARACTERS_QUERY = gql`
   query {
     allPersons {
       id
@@ -22,7 +24,7 @@ const QUERY = gql`
 const handleClick = (id) => () => console.log(id);
 
 const Characters = () => (
-  <Query query={QUERY}>
+  <Query query={CHARACTERS_QUERY}>
     {({ data }) => {
       if (!data || !data.allPersons) return null;
       const elems = data.allPersons.map(
@@ -35,9 +37,11 @@ const Characters = () => (
               Eye color: {eyeColor}
               <br />
               {films.map((f) => (
-                <button key={f.id} onClick={handleClick(f.id)}>
-                  {f.title}
-                </button>
+                <Link key={f.id} to={`/film/${f.id}`}>
+                  <button onClick={handleClick(f.id)}>
+                    {f.title}
+                  </button>
+                </Link>
               ))}
             </div>
           </div>
