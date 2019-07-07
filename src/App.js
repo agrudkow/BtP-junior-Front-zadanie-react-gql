@@ -7,7 +7,7 @@ import Film from './components/Film';
 function App() {
 	return (
 		<Router>
-			<div className="App">
+			<div>
 				<Switch>
 					<Route exact path='/' component={Characters}/>
 					<Route exact path='/film/:id' component={Film}/>
