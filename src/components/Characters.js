@@ -58,7 +58,7 @@ const searchData = {
 
 const Characters = props => {
   const [expanded, setExpanded] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const classes = useStyles();
 
   const handleChange = panel => (event, isExpanded) => {
